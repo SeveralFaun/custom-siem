@@ -8,11 +8,24 @@ This repository contains a customized version of the [docker-elk](https://github
 
 ---
 
+## 🧰 Environment Overview
+
+- Host OS: Windows 11 with VMware Workstation
+- Virtual Machines:
+  - **SIEM VM** (Ubuntu) running ELK Stack
+  - **Kali Linux** (attacker/log source)
+  - **Metasploitable2** (vulnerable target)
+- Network Mode: Host-only + NAT (dual adapter)
+
+---
+
 ## 🔧 Setup Changes
 
-- Added custom `filebeat.yml` to forward `/var/log/*auth*.log`
+- Added custom `filebeat.yml` to forward `/var/log/*.log`
 - Enabled `logstash` to listen on custom ports
 - Disabled xpack security for dev use
+
+See [`docs/setup-notes.md`](docs/setup-notes.md) for configuration details and system changes.
 
 ---
 
