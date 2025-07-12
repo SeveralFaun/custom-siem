@@ -36,12 +36,9 @@ To properly parse Kali’s logs, a filter was added to `logstash.conf`:
 
 ```conf
 filter {
-  grok {
-    match => { "message" => "%{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:host} %{DATA:process}: %{GREEDYDATA:message}" }
-  }
-  date {
-    match => ["timestamp", "MMM  d HH:mm:ss", "MMM dd HH:mm:ss"]
-  }
+	grok {
+		match => {"message" => "%{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:hostname} %{DATA:service}: %{GREEDYDATA:auth_message}" }
+	}
 }
 ```
 
