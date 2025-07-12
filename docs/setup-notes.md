@@ -30,6 +30,23 @@ This document outlines the technical setup, configuration changes, and log forwa
 
 ---
 
+## 🔧 Logstash Pipeline Configuration
+
+To properly parse Kali’s logs, a filter was added to `logstash.conf`:
+
+```conf
+filter {
+  grok {
+    match => { "message" => "%{SYSLOGTIMESTAMP:timestamp} %{HOSTNAME:host} %{DATA:process}: %{GREEDYDATA:message}" }
+  }
+  date {
+    match => ["timestamp", "MMM  d HH:mm:ss", "MMM dd HH:mm:ss"]
+  }
+}
+```
+
+---
+
 ## Kibana Configuration
 
 * Accessed via `http://<ELK-IP>:5601`
@@ -84,9 +101,9 @@ Used `journalctl -u filebeat` to verify logs were being sent.
 
 | File/Folder                                  | Purpose                         |
 | -------------------------------------------- | ------------------------------- |
-| `docker-elk/logstash/pipeline/logstash.conf` | Logstash input/output config    |
+| [`docker-elk/logstash/pipeline/logstash.conf`](../docker-elk/logstash/pipeline/logstash.conf) | Logstash input/output config    |
 | `filebeat.yml` (on Kali)                     | Filebeat config to forward logs |
-| `screenshots/`                               | Visuals of dashboards and setup |
+| [`screenshots/`](../screenshots/)            | Visuals of dashboards and setup |
 
 ---
 
@@ -94,7 +111,7 @@ Used `journalctl -u filebeat` to verify logs were being sent.
 
 SIEM successfully receives and visualizes logs from Kali Linux in real time using Filebeat + Logstash.
 
-[Kali Log on Kibana](../screenshots/elk_logs.png)
+![Kali Log on Kibana](../screenshots/elk_logs.png)
 
 Further improvements could include:
 
