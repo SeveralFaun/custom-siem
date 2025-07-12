@@ -30,7 +30,7 @@ This document outlines the technical setup, configuration changes, and log forwa
 
 ---
 
-## 🔧 Logstash Pipeline Configuration
+## Logstash Pipeline Configuration
 
 To properly parse Kali’s logs, a filter was added to `logstash.conf`:
 
