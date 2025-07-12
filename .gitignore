@@ -1,0 +1,17 @@
+# Ignore log files and sensitive data
+*.log
+*.pcap
+*.zip
+*.tar
+*.gz
+.env
+
+# IDE and OS junk
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Docker-related
+**/__pycache__/

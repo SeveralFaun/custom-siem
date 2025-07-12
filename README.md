@@ -8,6 +8,14 @@ This repository contains a customized version of the [docker-elk](https://github
 
 ---
 
+## 🔧 Setup Changes
+
+- Added custom `filebeat.yml` to forward `/var/log/*auth*.log`
+- Enabled `logstash` to listen on custom ports
+- Disabled xpack security for dev use
+
+---
+
 ## ⚙️ Features
 
 - Preconfigured for use with **Kali Linux** and **Metasploitable2**
@@ -24,7 +32,7 @@ This repository contains a customized version of the [docker-elk](https://github
 
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
-
+ 
 ---
 
 ### Quick Start
@@ -41,6 +49,8 @@ This repository contains a customized version of the [docker-elk](https://github
 3. Access Kibana:
     `http://localhost:5601`
 
+---
+
 ## 📌 Use Cases
 
 - Learn how SIEMs process real log data
@@ -48,6 +58,18 @@ Build dashboards for security events
 Practice blue team skills like log analysis
 Prep for security engineering of SOC roles
 
+---
+
 ## 🧾 Credits
 
 This project is based on [docker-elk](https://github.com/deviantony/docker-elk) by [@deviantony](https://github.com/deviantony).
+
+---
+
+## ⚠️ Disclaimer
+
+This project is intended for **educational and research purposes only**.
+
+It is not designed to be production-ready or secure for real-world deployments.  
+Use it only in **isolated lab environments** such as virtual machines.  
+The author is not responsible for any misuse or damage resulting from the use of this code.
